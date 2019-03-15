@@ -7,6 +7,15 @@ lon = list(data['LON'])                     # make a Python list of latitudes fr
 elev = list(data['ELEV'])
 name = list(data['NAME'])
 
+# function for allocating colour according to elevation
+def colour_producer(elevation):
+    if elevation < 1000:
+        return 'green'
+    elif 1000 <=elevation < 3000:
+        return 'orange'
+    else:
+        return 'red'
+
 
 html = """
 Volcano name:<br>
@@ -36,8 +45,9 @@ volcanoes = folium.FeatureGroup(name="volcanoes")
 for lt, ln, el, nm in zip(lat, lon, elev, name):     # NB zip function for multiple lists (latitude and longitude)
     iframe = folium.IFrame(html=html % (nm, nm, el), width=200, height=100)  # strings interpolated into html string's %s parameters
     # folium.Marker(location=[lt, ln], popup ='<p><b><em>' + nm + ',</em></b></p> <p><b>' + str(el) + '</b> metres</p>', icon=folium.Icon(color='green')).add_to(volcanoes)  # list/array of coords
-    folium.Marker(location=[lt, ln], popup = folium.Popup(iframe), icon=folium.Icon(color='green')).add_to(volcanoes)  # list/array of coords
+    # folium.Marker(location=[lt, ln], popup = folium.Popup(iframe), icon=folium.Icon(color='green')).add_to(volcanoes)  # list/array of coords
+    folium.Marker(location=[lt, ln], popup = folium.Popup(iframe), icon=folium.Icon(color=colour_producer(el))).add_to(volcanoes)  # list/array of coords
 volcanoes.add_to(map)
 
 
-map.save('MapVolcanoesAdvancedPopup.html')
+map.save('MapVolcanoesColouredMarkers.html')
