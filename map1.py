@@ -51,4 +51,7 @@ for lt, ln, el, nm in zip(lat, lon, elev, name):     # NB zip function for multi
 volcanoes.add_to(map)
 
 
-map.save('MapVolcanoesColouredMarkers.html')
+fg.add_child(folium.GeoJson(data=(open('world.json', 'r', encoding='utf-8-sig').read())))     # import polygon of states' boundaries
+# could use .add_to
+
+map.save('MapVolcanoesPolygons.html')
