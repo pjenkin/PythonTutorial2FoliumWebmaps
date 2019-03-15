@@ -46,7 +46,8 @@ for lt, ln, el, nm in zip(lat, lon, elev, name):     # NB zip function for multi
     iframe = folium.IFrame(html=html % (nm, nm, el), width=200, height=100)  # strings interpolated into html string's %s parameters
     # folium.Marker(location=[lt, ln], popup ='<p><b><em>' + nm + ',</em></b></p> <p><b>' + str(el) + '</b> metres</p>', icon=folium.Icon(color='green')).add_to(volcanoes)  # list/array of coords
     # folium.Marker(location=[lt, ln], popup = folium.Popup(iframe), icon=folium.Icon(color='green')).add_to(volcanoes)  # list/array of coords
-    folium.Marker(location=[lt, ln], popup = folium.Popup(iframe), icon=folium.Icon(color=colour_producer(el))).add_to(volcanoes)  # list/array of coords
+    # folium.Marker(location=[lt, ln], popup = folium.Popup(iframe), icon=folium.Icon(color=colour_producer(el))).add_to(volcanoes)  # list/array of coords
+    folium.CircleMarker(location=[lt, ln], popup = folium.Popup(iframe), color=colour_producer(el), radius=8, fill=True).add_to(volcanoes)  # list/array of coords
 volcanoes.add_to(map)
 
 
