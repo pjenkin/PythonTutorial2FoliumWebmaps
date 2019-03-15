@@ -1,0 +1,382 @@
+NB remember to activate virtualenv with activate script and pip3 install from Scripts directory in terminal window from PyCharm
+
+1-3 "pip install xyz" actually working, but "python -m pip install xyz" an alternative if needed - wheel files with pip https://stackoverflow.com/q/27885397 https://pip.pypa.io/en/stable/reference/pip_wheel/
+1-6 pycharm (Jetbrains)  Ctrl-Q - cursor docs; Alt-F7 find instances; Ctrl-space complete; Ctrl-F12 navigate structure; shift-F6 rename; Tab accept/overwrite; Ctrl-W increasing select; Alt-F1 select currently edited; Ctrl-D duplicate; Ctrl-Shift-Up/Down move line up/down; Ctrl-P valid parameter list at cursor; Ctrl-Shift-Backspace move to last edit(s); Ctrl-Shift-F7 highlight instances in file - F3/Shift-F3 move through; Ctrl-Shift-V choose clipboard copy/paste; Alt-Up/Down move between methods;  Ctrl-Alt-L reformat according to PEP8 standard; Ctrl-O override base methods; 
+Run... configuration - or use default 'main'
+pastebin.com 
+https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
+
+*no* implicit conversion (string->number)
+is - boolean - initial 'T' True
+list (array) my_array = ['one','two']   my_array[0]  my_array[0:2]  (from 0 to 1)   my_array[0:] (from 0 to the end) my_array[:] (from the start to the end)  my_array[-2] (2 back from the end)     'one' in my_array     will evaulate to True  - dictionary, e.g. for value in my_array.values  or for key in my_array.keys
+dictionary - key/value (JSON-like) -   dictionary1 = {'name': 'PJ', 'age': str(45), 'hobby': 'walking'}   -  dictionary1['name']   dictionary2 = zip(array_keys,array_values) - zip function for i,j in zip(my_array1, my_array2)  - pop and push for dictionaries dictionary1.pop('name')
+def - all caps for Class Names MyClass  - for functions,   my_function(): - 4 space indentation - 
+
+def my_function():
+    print('This is in my function')
+
+my_function()
+print('This is not in a function')
+
+None keyword - * 
+
+def print_people(*people):
+    for person in people:
+        print('This person is', person)
+
+# check = False
+check = 10
+
+
+if not check:
+    print('\'tis false')
+elif check == 10:
+    print('check d\'equal 10')
+else if check:
+    print('\'tis actually true')
+else:
+    print('can never get here')
+
+import re   - import regular expression library  re.sub('[A-z]' '[a-z]', string)
+string = 'I am not YELLING, he said. However we knew that that was not true.'
+re.sub('[A-z]' '[a-z]', string)
+
+class MyClass:
+	property1 = 100
+	property2 = 'hello'
+    def __init__(self, property1, property2):
+
+	def getProperty1(self):
+		print(self.property1)
+
+mything = MyClass()
+mything.getProperty1()
+
+''' string literal to comment out large code block - docstring   https://www.pythonforbeginners.com/basics/python-docstrings  https://en.wikipedia.org/wiki/Docstring#Python  The docstring for a Python code object (a module, class, or function) is the first statement of that code object, immediately following the definition (the 'def' or 'class' statement). The docstring for the code object is available on that code object's __doc__ attribute and through the help function.
+"""The module's docstring"""
+
+class MyClass(object):
+    """The class's docstring"""
+
+    def my_method(self):
+        """The method's docstring"""
+
+
+    def __init__(self): like a constructor
+
+>>> import mymodule
+>>> help(mymodule)
+The module's docstring
+>>> help(mymodule.MyClass)
+The class's docstring
+
+
+3-33 classes, __init__.py (__init__.py to identify directory as containing package, inter alia)  -  from classes.myclass  (relative, local import)
+pprint - pretty print object
+
+
+https://pypi.org/project/colorama/     https://stackoverflow.com/a/23435273
+
+
+tolookup:
+Jupyter
+venv - virtual environment   https://realpython.com/python-virtual-environments-a-primer/   https://docs.python-guide.org/dev/virtualenvs/    https://docs.python.org/3/library/venv.html
+.idea  - project settings files - useful to share (3): indexLayout.xml (external folders) vcs.xml (version control) runconfigurations -   https://rider-support.jetbrains.com/hc/en-us/articles/207097529-What-is-the-idea-folder-  https://www.jetbrains.com/help/pycharm/project-and-ide-settings.html  https://www.jetbrains.com/help/idea/working-with-projects.html
+
+slice
+
+
+Anaconda navigator
+
+https://www.pythonanywhere.com/
+nano   - Ctrl-X   https://wiki.gentoo.org/wiki/Nano/Basics_Guide   Alt-6 copy   Ctrl-U paste  Ctrl-Shift-6 select
+python - version 2    python3 - version 3    Ctrl-D === EOF     Ctrl-L to clear  dir(my_variable) to get methods applicable to a variable   dir(__builtins__)   pow(x,y)   x ** y
+for loop    - also for i,j in 
+while 
+
+tuple - using parentheses() , not mutable so no appending or removing
+open()
+fileobject.read			.readlines     .close()
+.splitlines					a+ to write at end and make new 
+with open('fruit.txt', 'w') as myfile:
+    myfile.write('something')			- with will close file even if error in block of code 3-68
+
+import os    os module for file/path      dir(os) to see functions (introspection)    help(os)  to see explanations - q to quit help if line-by-line
+module - file in Lib/
+library - directory of py files in Lib/      __init__.py loads methods    folder.file
+package - 3rd party module/library        cf npm      pip3 install xyz    or pip3 install xyz or python3 -m install xyz  -  pip show xyz  -  help(xyz) maybe - docs at e.g. 
+pypi.python.org/pypi/glob2   - python -m site   -  pip3 install --upgrade --force-reinstall glob2
+
+in Pycharm, File/Settings/Project/Project Interpreter - in drop-down select the main interpreter (e.g. Python 3.7 C:\Users\peter.DESKTOP-3GCVT7E\AppData\Local\Programs\Python\Python37-32\python.exe) not the interpreter in the venv (e.g.Python 3.7 (beyondbasics) C:\Users\peter.DESKTOP-3GCVT7E\source\repos\Python\python mega course\beyondbasics\venv\Scripts\python.exe)  - selecting the main interpreter so will give access to packages loaded into the global Python path (e.g. C:\Users\peter.DESKTOP-3GCVT7E\AppData\Local\Programs\Python\Python37-32\Lib)  https://askubuntu.com/questions/684550/importing-a-python-module-works-from-command-line-but-not-from-pycharm  https://stackoverflow.com/a/19885882    http://python-notes.curiousefficiency.org/en/latest/python_concepts/import_traps.html  - symptom: no module found from IDE e.g. PyCharm but module found from terminal Python console.
+
+could be caused by Anaconda / conda installation interfering with Pycharm https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000639400/comments/360000120659
+
+https://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/   https://packaging.python.org/guides/installing-using-pip-and-virtualenv/  - need to activate venc using /Scripts/activate.py script from command line (navigate in Pycharm , right click open in terminal and type 'activate')    (and then deactivate later)
+
+PYTHONPATH environment variable? may already be an entry in Path for User variables in System/environment variables (Windows) 
+site_packages in venv and/or Python install directories for 3rd party libs
+
+3-65 from datetime import datetime    datetime.strptime('2018:03:03:10:15', '%Y:%m:%d:%H:%M')   mytime.strftime('%Y:%m')
+
+4-78 try:
+	something()
+except ZeroDivisionError:		# ZeroDivisionError: python keyword for a particular error
+	print('an error occurred')
+
+else:
+	print('No errors')
+
+finally:
+	print('All code completed')
+
+except Exception as e:
+	raise
+
+		
+https://pyfound.blogspot.com/search/label/pypi
+https://pypi.org/search/?q=&o=-zscore&c=Programming+Language+%3A%3A+Python+%3A%3A+3
+
+5-81 import json     data = json.load(open('data.json'))
+5-85 fuzzy string matching https://www.datacamp.com/community/tutorials/fuzzy-string-python  Levenshtein distance
+import difflib            from difflib import SequenceMatcher   SequenceMatcher(None, "rainn", "rain").ratio()    from difflib import get_close_matches    
+get_close_matches('rainn', ['hope','reign','chocolate', 'rain'])   >>> ['rain', 'reign']   get_close_matches('rainn', ['hope','reign','chocolate', 'rain'], cutoff=0.8)  >>>> ['rain']   help(get_close_matches)
+
+string interpolation:
+(1) name = there; program = 'Python'; print(f'Hello {name}! This is {program}')    # https://www.programiz.com/python-programming/string-interpolation
+
+print("%s %s" %('Hello','There',))  (deprecated?)
+
+line continuation  - \ character     - parentheses also d'facilitate breaking into multiple lines  - function parameters also can be spread over multiple lines
+semicolons can be used to put several commands on 1 line, but not recommended
+5-89 print 1 list item per line https://www.geeksforgeeks.org/print-lists-in-python-4-different-ways/  -   '\n'.join(my_list)
+a=[1,2,3,4];    print('_'.join(map(str,a)))   >>> 1_2_3_4		# int in list mapped to string
+
+
+
+
+TODO decorators - http://book.pythontips.com/en/latest/decorators.html   https://en.wikipedia.org/wiki/Decorator_pattern
+TODO variadic arguments
+TODO positional argument, keyword argument
+5-89 *my_list    **my_dictionary   TODO https://codeyarns.com/2012/04/26/unpack-operator-in-python/    https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/   splat? unpack?
+
+6-96 pandas - DataFrame to store/process structured data - pip3 install pandas - 
+In [6]: df1 = pandas.DataFrame([[2,4,6],[10,20,30]],columns = ["Mass","Age","Saturation"], index=["First","Second"])
+
+In [7]: df1
+Out[7]:
+        Mass  Age  Saturation
+First      2    4           6
+Second    10   20          30
+
+In [14]: df2=pandas.DataFrame([{"name":"John","surname":"Jones"},{"name":"Peter"}])
+
+In [15]: df2
+Out[15]:
+    name surname
+0   John   Jones
+1  Peter     NaN
+dir(df2) will show large number of methods of DataFrame
+series - 1 dimensional, labelled by 'index' (DataFrame composed of series)
+
+
+IPython -    - pip3 install ipython
+
+6-97 Jupyter notebook (can pip3 install jupyter or pip3 install notebook) - https://github.com/jupyter/notebook/issues/4467#issuecomment-471609885  - jupyter notebook    in a directory 
+new/ notebook    xz.ipynb
+H - shortcuts; Enter - new line; Ctrl+Enter - execute cell; Alt+Enter - new cell; Enter - next line; Shift+Enter - execute and move to a new cell; Esc then D,D - delete cell; A - new cell above; B - new cell below;
+command mode has line around cell - edit mode has cursor
+token needed for authentication if using IDE to connect to Jupyter server - from output of     jupyter notebook    command in terminal
+TODO https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/   http://maxmelnick.com/2016/04/19/python-beginner-tips-and-tricks.html 
+'No connection to kernel' - python -m ipykernel - https://github.com/ipython/ipython/issues/10346#issuecomment-282615313
+pip3 uninstall tornado    pip3 install tornado==5.1.1 https://github.com/jupyter/notebook/issues/2990#issuecomment-469750346   - tornado web server https://www.tornadoweb.org/en/stable/ - not based on WebServerGatewayInterface https://wsgi.readthedocs.io/en/latest/  https://en.wikipedia.org/wiki/Tornado_(web_server)
+
+import pandas; df=pandas.read_csv('supermarkets.csv'); df;  dfpj=pandas.read_json('supermarkets.json'); dfpj;
+Cell/Type/Markdown to add text 
+markdown: ** bold; __underline;  _ or* italics; ~~ strikethrough; # H1; ##H2; ` codeblock; ``` multi-line codeblock; [link text](http://tosomeurl.net); ![image alt text](http://someurl.net/someimageurl.jpg)
+
+6-101 pip3 install xlrd - for excel files
+
+
+6-98 import os; os.listdir()
+6-103 pandas.read_csv?    for help on function - e.g. to find 'sep=' parameter string for dfsemicolon=pandas.read_csv('supermarkets-commas.txt',sep=';')
+6-104 dftext=pandas.read_csv('supermarkets-commas.txt', header=None)  for no header row
+6-105 dftext.columns = ['ID','Address','City','ZIP','Country','Name','Capacity']
+6-106 index using e.g. ID field: dftext2 = dftext.set_index('ID') - NB not in-place: produces new DataFrame, does not modify existing unless inplace=True parameter used - NB if new index set, old index by default is dropped, unless drop=False parameter used 
+6-107 .loc for Label-based location, using ranges where 1st parameter is on index column - e.g. dftext2.loc['332 Hill St':'551 Alvarado St','Country':'Capacity']   https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html - NB finish location included, unlike Python slice - to obtain a single datum (scalar) dftext2.loc['332 Hill St','Name'] - dftext2.loc['332 Hill St','Name'] will give Out[33]: 'Super River' - dftext2.loc['332 Hill St','Name'] + ' is a super address' will give Out[34]: 'Super River is a super address' - also methods such as reference &c https://stackoverflow.com/a/30813223
+DataFrame.iloc[1:3,1:3] using numerical indices
+DataFrame.ix[2,2] - 0 indexed (deprecated)
+to merely list a column, DataFrame.ColumnName e.g. dftext2.Coordinates
+6-108 DataFrame.drop - NB not in-place - e.g. (with Address previously specified as an index) 
+6-109 adding a column with same value - multiply existing DataFrame.shape by a scalar e.g. dftext2['Continent']=dftext2.shape[0]*['North America'] - NB in-place operation
+modifying each value of a column e.g. dftext2['Continent']= dftext2['Country'] + ',' + dftext2['Continent']; dftext2
+DataFrame.T will transpose (rows become columns & vice versa) - e.g.    	
+3666 21st St	735 Dolores St	332 Hill St	3995 23rd St	1056 Sanchez St	551 Alvarado St
+ID	1	2	3	4	5	6
+Address	3666 21st St	735 Dolores St	332 Hill St	3995 23rd St	1056 Sanchez St	551 Alvarado St
+City	San Francisco	San Francisco	San Francisco	San Francisco	San Francisco	San Francisco
+ZIP	CA 94114	CA 94119	California 94114	CA 94114	California	CA 94114
+Country	USA	USA	USA	USA	USA	USA
+Name	 Madeira	Bready Shop	Super River	Ben's Shop	Sanchez	Richvalley
+Capacity	8	15	25	10	12	20
+Continent	USA,North America	USA,North America	USA,North America	USA,North America	USA,North America	USA,North America
+
+DataFrame.to_clipboard()
+A way to add a record (1) copy DataFrame transpose with .T, e.g. dftext2_t = dftext2.T (2) declare record with Index e.g. dftext2_t['My Address']=[7,'Somewhere','My City','my Zip','My Country','My Shop',20, 'My Continent']; dftext2_t;  (3) then inverse transpose by again using .T  e.g. dftext2 = dftext2_t.T  
+TODO: bookmarklet https://stackoverflow.com/a/44229929   Ctrl-Shift-B
+
+6-111  geopy pip3 install geopy (after activate venv script) - NB do this (from PyCharm) before trying to use geopy in the directory's Jupyter Notebook .ipynb cells
+from geopy.geocoders import ArcGIS; nom = ArcGIS(); 	# NB brackets to construct new instance
+Nominatim geocoding from Open Street Map
+to find Jupyter Notebook kernel location: https://stackoverflow.com/a/40694605 import sys; print(sys.executable); (was in c:\users\peter.desktop-3gcvt7e\appdata\local\programs\python\python37-32\python.exe - had to run from normal cmd prompt terminal - installed in global site_packages even though PyCharm venv had not been deactivated).
+
+e.g. dftext2['LongAddress']=dftext2['Address']+', '+ dftext2['City']+', '+ dftext2['ZIP']+', '+ dftext2['Country']; dftext2 # create geocodable address string 
+
+dftext2['Coordinates']=dftext2['LongAddress'].apply(nom.geocode) # new column with location.Location object of geocode result (in each row)
+dftext2.Coordinates; # all of column  dftext2.Coordinates[0].latitude  # 1 element of column
+    lambda function to apply to all column members/rows/cells (as case may be)
+
+
+TODO: Mac Certifi for SSL https://www.udemy.com/the-python-mega-course/learn/v4/questions/5846000    https://www.udemy.com/the-python-mega-course/learn/v4/questions/6534396
+
+sudo if linux!
+
+dftext2['Latitude'] = dftext2['Coordinates'].apply(lambda x: x.latitude if x != None else None); dftext2;   # unpack Location object from Coordinates field using lambda expression
+ditto for longitude
+
+7-112 Numpy (as for arrays and image matrices)
+n = numpy.arange(10) will fill 0-9 in a numpy.ndarray (n-dimensional array) as ascertained from type(ar)
+n.reshape(3,9) into 2-D array of 3 rows of 9 elements
+Python list is different from numpy array
+pip3 install opencv-python  #globally, not in venv, so as to work with Jupyter Notebook NB opencv == cv2 (in Python)
+7-114 im_g = cv2.imread('smallgrey.png', 0) # 0: greyscale 1: RBG
+array([[187, 158, 104, 121, 143],
+       [198, 125, 255, 255, 147],
+       [209, 134, 255,  97, 182]], dtype=uint8)
+im_g = cv2.imread('smallgrey.png', 0) # 0: greyscale 1: RGB/BGR (bands)
+cv2.imwrite('newsmallgrey.png',im_g)
+7-115 
+for i in im_g: # iterate through rows of 2-d numpy array using 'for'
+    print(i)
+for i in im_g.T: # iterate through columns of (transposed) 2-d numpy array using 'for'
+    print(i)
+for i in im_g.flat: will run through individual elements of n-d array row by row
+7-116  e.g. ims = numpy.hstack((im_g,numpy.array([[1,2,3],[1,2,3],[1,2,3]])))  # horizontal stack using tuple
+array([[187, 158, 104, 121, 143,   1,   2,   3],
+       [198, 125, 255, 255, 147,   1,   2,   3],
+       [209, 134, 255,  97, 182,   1,   2,   3]])
+
+e.g. ims = numpy.vstack((im_g,numpy.array([[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]])))  # vertical stack using tuple
+array([[187, 158, 104, 121, 143],
+       [198, 125, 255, 255, 147],
+       [209, 134, 255,  97, 182],
+       [  1,   2,   3,   4,   5],
+       [  1,   2,   3,   4,   5],
+       [  1,   2,   3,   4,   5]])
+
+e.g. lst = numpy.hsplit(ims,5) # horizontal split - beware splitting non-evenly split columns
+e.g. lst2 = numpy.vsplit(ims,3) # vertical split - beware splitting non-evenly split columns
+e.g. lst2[0] # to access the first array of the split matrix
+
+8-117 Folium pip3 install'd in venv   - import folium; map=folium.map; dir(folium); help(folium); help (folium.Map)  -  generate elements (markup & jscript) from Python making use of leaflet API - default OSM tiles
+8-118 map = folium.Map(location=[51,-4])
+map = folium.Map(location=[51,-4], zoom_start=4)
+map.save('Map1.html')
+NB Google map coordinates by 'What's here'
+NB OSM names in local language https://www.udemy.com/the-python-mega-course/learn/v4/questions/6150780
+NB install'd package 'script' in Atom - for running scripts - https://atom.io/packages/script  - Packages/Script/Run Script
+NB install'd plaformio-ide-terminal - + icon at bottom-left for terminal
+pip3 install'd folium globally for use with Atom
+8-119 map = folium.Map(location=[51,-4], zoom_start=4, tiles='Mapbox Bright') #tiles argument for different base map - NB coordinates in [array]
+.Marker and .CircleMarker
+# use feature group in adding markers - can add_child marker to map directly if wished
+fg = folium.FeatureGroup(name="PJ Map")
+fg.add_child(folium.Marker([50.8,-3.8], popup="Hello, I'm a marker in a feature group #1", icon=folium.Icon(color='green')))
+map.add_child(fg)
+In Jupyter Notebook  NB maps may render ok in Chrome but _not_ render in Edge - no errors seen in F12 javascript console     https://app.dominodatalab.com/u/r00sj3/crimemaps/view/examples.ipynb
+NB fg = folium.FeatureGroup(name="PJ Map")
+folium.Marker([50.8,-3.8], popup="Hello, I'm a marker in a feature group #1").add_to(fg)
+folium.Marker([50.7,-4.1], popup="Hello, I'm a marker in a feature group #2").add_to(fg)
+fg.add_to(map) 
+as per https://python-visualization.github.io/folium/quickstart.html
+TODO comment? https://www.udemy.com/the-python-mega-course/learn/v4/questions/6617760
+Jinja2 - for rendering html via templates containing Python-like code https://en.wikipedia.org/wiki/Jinja_(template_engine)
+
+8-120 - adding multiple coordinates
+for coordinates in [[50,-4],[50,-5]]:
+    folium.Marker(location=coordinates, popup="Hello, I'm a marker in a feature group #1", icon=folium.Icon(color='green')).add_to(fg)
+
+data.columns to get headers of CSV file &c when loaded into pandas.read_csv dataframe 
+
+lat = list(data['LAT'])                     # make a Python list of latitudes from CSV file data
+lon = list(data['LON'])                     # make a Python list of latitudes from CSV file data
+
+volcanoes = folium.FeatureGroup(name="volcanoes")
+for lt, ln in zip(lat, lon):     # NB zip function for multiple lists (latitude and longitude)
+    folium.Marker(location=[lt, ln], popup="Hello, I'm a marker in a volcano feature group", icon=folium.Icon(color='green')).add_to(volcanoes)  # list/array of coords
+    volcanoes.add_to(map)
+
+8-122 - popups (no callback needed)
+elev = list(data['ELEV'])
+for lt, ln, el in zip(lat, lon, elev):     # NB zip function for multiple lists (latitude and longitude)
+    folium.Marker(location=[lt, ln], popup="Hello, I'm a marker in a volcano feature group" popup=el icon=folium.Icon(color='green')).add_to(volcanoes)  # list/array of coords
+volcanoes.add_to(map)
+
+8-123 - distinct HTML on markers' popups
+html = """
+Volcano name:<br>
+<a href="https://www.google.com/search?q=%%22%s%%22" target="_blank">%s</a><br>
+Height: %s m
+"""
+
+volcanoes = folium.FeatureGroup(name="volcanoes")
+for lt, ln, el, nm in zip(lat, lon, elev, name):     # NB zip function for multiple lists (latitude and longitude)
+    iframe = folium.IFrame(html=html % (nm, nm, el), width=200, height=100)  # strings interpolated into html string's %s parameters
+    # folium.Marker(location=[lt, ln], popup ='<p><b><em>' + nm + ',</em></b></p> <p><b>' + str(el) + '</b> metres</p>', icon=folium.Icon(color='green')).add_to(volcanoes)  # list/array of coords
+    folium.Marker(location=[lt, ln], popup = folium.Popup(iframe), icon=folium.Icon(color='green')).add_to(volcanoes)  # list/array of coords
+volcanoes.add_to(map)
+
+8-124 colours of Folium marker icons e.g. different colours per value, e.g. colours per elevation Z of point X,Y
+def function at start, call this with a parameter (e.g. elevation) within loop for populating markers
+8-126 Folium.CircleMarker has fill=False, radius=10 by default
+8-127 for polygons or points or lines in JSON or GeoJSON, folium.geoJson
+8-128 e.g.   fg.add_child(folium.GeoJson(data=(open('world.json', 'r', encoding='utf-8-sig').read())))     # import polygon of states' boundaries
+8-130 use key/value from dictionary in GeoJson to depict e.g. population-per-polygon data, using lambda/anonymous function for each record (within brackets, split over several lines for clarity/PEP8 adherence)
+
+fg.add_child(folium.GeoJson(data=open('world.json', 'r', encoding='utf-8-sig').read(),
+style_function = lambda x: {'fillColor':'green' if x['properties']['POP2005'] < 1e7
+else 'orange' if 1e7 <= x['properties']['POP2005'] < 2e7 else 'red'}))     # import polygon of states' boundaries
+
+https://www.udemy.com/the-python-mega-course/learn/v4/questions/3449868  - style_function w/o using lambda https://python-visualization.github.io/folium/quickstart.html#Styling-function
+TODO: cat  https://en.wikipedia.org/wiki/Cat_(Unix)
+
+8-131 Layer control - e.g. map.add_child(folium.LayerControl()) - Layers controllable are the featuregroups previously added to map
+
+9-132 Website blocker running as a process (time/date functions with website restriction) via hosts file
+9-133 Windows\System32\drivers\etc\hosts.
+
+
+=======================================
+NB remember to activate virtualenv with activate script and pip3 install from Scripts directory in terminal window from PyCharm
+
+monotonous (little change in pitch, words run together)
+vowel sounds similar
+too quick in important bits, some repetition/time wasting in discussion though good explanation of need-to-know, few diagrams but good
+lots of sighing
+
+pandas (pannas)
+ahead (ahud)
+commAnd (commond)
+last (lost)
+country (contry)
+indexing (innexing)
+python (poython)
+not (noh)
+my (moy)
+convert (covert)
+extract (extrot)
+comma (coma)
+mmmmm
+
+then (theh)
+so you get (syiget)
+column (com)
