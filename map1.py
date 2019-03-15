@@ -56,4 +56,8 @@ style_function = lambda x: {'fillColor':'green' if x['properties']['POP2005'] < 
 else 'orange' if 1e7 <= x['properties']['POP2005'] < 2e7 else 'red'}))     # import polygon of states' boundaries
 # could use .add_to
 
-map.save('MapVolcanoesPolygonsPopulationsColours.html')
+
+map.add_child(folium.LayerControl())
+# could use .add_to
+
+map.save('MapVolcanoesPolygonsPopulationsColoursLayerControl.html')
