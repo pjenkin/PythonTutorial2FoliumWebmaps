@@ -4,6 +4,8 @@ import pandas
 data = pandas.read_csv('Volcanoes.txt')     # load CSV into data frame
 lat = list(data['LAT'])                     # make a Python list of latitudes from CSV file data
 lon = list(data['LON'])                     # make a Python list of latitudes from CSV file data
+elev = list(data['ELEV'])
+name = list(data['NAME'])
 
 
 
@@ -24,10 +26,10 @@ for coordinates in [[50,-4],[50,-5]]:
     folium.Marker(location=coordinates, popup="Hello, I'm a marker in a feature group #1", icon=folium.Icon(color='green')).add_to(fg)
 
 
-    volcanoes = folium.FeatureGroup(name="voclanoes")
-    for lt, ln in zip(lat, lon):     # NB zip function for multiple lists (latitude and longitude)
-        folium.Marker(location=[lt, ln], popup="Hello, I'm a marker in a volcano feature group", icon=folium.Icon(color='green')).add_to(volcanoes)  # list/array of coords
-    volcanoes.add_to(map)
+volcanoes = folium.FeatureGroup(name="volcanoes")
+for lt, ln, el, nm in zip(lat, lon, elev, name):     # NB zip function for multiple lists (latitude and longitude)
+    folium.Marker(location=[lt, ln], popup ='<p><b><em>' + nm + ',</em></b></p> <p><b>' + str(el) + '</b> metres</p>', icon=folium.Icon(color='green')).add_to(volcanoes)  # list/array of coords
+volcanoes.add_to(map)
 
 
 map.save('MapVolcanoes1.html')
